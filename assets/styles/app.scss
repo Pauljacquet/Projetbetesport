@@ -1,0 +1,87 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-image: url(https://wallpaperaccess.com/full/1151553.jpg);
+    min-width: 600px;
+    min-height: 500px;
+}
+
+header{
+    height: 80px;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.lolicone {
+    background-image: url(../pictures/iconnelol.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 150px;
+    left: 30px;
+}
+
+.valoicone {
+    background-image: url(../pictures/valoicon.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 300px;
+    left: 30px;
+}
+
+.overwatchicone {
+    background-image: url(../pictures/overwatchicon.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 450px;
+    left: 30px;
+}
+
+.menu {
+    position: fixed;
+    display: flex;
+    height: 25px;
+    padding:0;
+    color: aliceblue;
+    font: small-caps bold 24px/1 sans-serif;
+    top: 20px;
+    left: 30px;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+  }
+  
+  a:link {
+    color: #8598a5;
+  }
+  
+  a:visited {
+    color: #899eac;
+  }
+  
+  a:focus {
+    background-color: #476e88;
+  }
+  
+  a:hover {
+    background-color: #476e88;
+  }
+  
+  a:active {
+    background-color: #476e88;
+    color: #3b919c;
+  }
+
