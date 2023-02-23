@@ -11,3 +11,86 @@ body {
   height: 100vh;
 }
 
+.vertical-nav {
+  min-width: 13rem;
+  width: 13rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0);
+  transition: all 0.4s;
+}
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+.logo {
+  background-image: url(../pictures/be64x.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
+
+.logoParam{
+  background-image: url(../pictures/iconlog.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
+
+.logoLol{
+  background-image: url(../pictures/iconnelol.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 90px;
+  height: 90px;
+}
+
+.logoValo{
+  background-image: url(../pictures/valoicon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 90px;
+  height: 90px;
+}
+
+.logoOver{
+  background-image: url(../pictures/overwatchicon.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 90px;
+  height: 90px;
+}
+
+
