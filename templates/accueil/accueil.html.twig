@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}
+    Accueil - Bet eSport
+
+{% endblock %}
+
+{% block body %}
+
+        
+    <div class="flexcolumn accueilsource">
+        <a href="#" class="flexcolumn center">
+            <img src="{{asset('build/images/logobe/be64x.png')}}" >
+        </a>
+            <h1>Try to bet</h1>
+            <h2>Bienvenue sur Bet Esport le site de paris esportif choisit le jeu sur lequel tu veux parier ?</h2>
+        <div class="imgaccueil flexrow">
+            <a href="/lol"><img  src="{{ asset('build/images/accueillol.png') }}"></a>
+            <a href="/valo"><img  src="{{ asset('build/images/accueilvalo.png') }}"></a>
+            <a href="/over"><img  src="{{ asset('build/images/accueilover.png') }}"></a>
+        </div>
+    </div>
+{% endblock %}

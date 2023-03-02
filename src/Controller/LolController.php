@@ -11,7 +11,7 @@ class LolController extends AbstractController
     #[Route('/lol', name: 'app_lol')]
     public function index(): Response
     {
-        return $this->render('lol/index.html.twig', [
+        return $this->render('lol/lol.html.twig', [
             'controller_name' => 'LolController',
         ]);
     }
