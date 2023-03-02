@@ -21,6 +21,7 @@ final class Version20230223144623 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE tournoi (id INT AUTO_INCREMENT NOT NULL, utilisateur_id INT NOT NULL, jeu_id INT NOT NULL, titre VARCHAR(255) NOT NULL, date DATETIME NOT NULL, INDEX IDX_18AFD9DFFB88E14F (utilisateur_id), INDEX IDX_18AFD9DF8C9E392E (jeu_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE tournoi ADD nb_equipes INT NOT NULL');
         $this->addSql('ALTER TABLE tournoi ADD CONSTRAINT FK_18AFD9DFFB88E14F FOREIGN KEY (utilisateur_id) REFERENCES utilisateur (id)');
         $this->addSql('ALTER TABLE tournoi ADD CONSTRAINT FK_18AFD9DF8C9E392E FOREIGN KEY (jeu_id) REFERENCES jeu (id)');
     }

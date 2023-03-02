@@ -22,6 +22,9 @@ class Tournoi
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\Column]
+    private ?int $nb_equipes = null;
+
     #[ORM\ManyToOne(inversedBy: 'tournois')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateur $utilisateur = null;
@@ -33,12 +36,13 @@ class Tournoi
     #[ORM\OneToMany(mappedBy: 'tournoi', targetEntity: Partie::class)]
     private Collection $parties;
 
-    #[ORM\Column]
-    private ?int $nb_equipes = null;
+    #[ORM\OneToMany(mappedBy: 'tournoi', targetEntity: Equipe::class)]
+    private Collection $equipes;
 
     public function __construct()
     {
         $this->parties = new ArrayCollection();
+        $this->equipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -132,6 +136,36 @@ class Tournoi
     public function setNbEquipes(int $nb_equipes): self
     {
         $this->nb_equipes = $nb_equipes;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Equipe>
+     */
+    public function getEquipes(): Collection
+    {
+        return $this->equipes;
+    }
+
+    public function addEquipe(Equipe $equipe): self
+    {
+        if (!$this->equipes->contains($equipe)) {
+            $this->equipes->add($equipe);
+            $equipe->setTournoi($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEquipe(Equipe $equipe): self
+    {
+        if ($this->equipes->removeElement($equipe)) {
+            // set the owning side to null (unless already changed)
+            if ($equipe->getTournoi() === $this) {
+                $equipe->setTournoi(null);
+            }
+        }
 
         return $this;
     }
