@@ -1,96 +1,221 @@
 @import "custom";
-@import "~bootstrap/scss/bootstrap";
 
-*, ::before, ::after {
-  box-sizing: border-box;
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+html{
   margin: 0;
   padding: 0;
-}
-
-body {
-  height: 100vh;
-}
-
-.vertical-nav {
-  min-width: 13rem;
-  width: 13rem;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0);
-  transition: all 0.4s;
-}
-
-#sidebar.active {
-  margin-left: -17rem;
-}
-
-#content.active {
   width: 100%;
+  height: 100%;
+}
+
+.body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 768px) {
-  #sidebar {
-    margin-left: -17rem;
-  }
-  #sidebar.active {
-    margin-left: 0;
-  }
-  #content {
-    width: 100%;
-    margin: 0;
-  }
-  #content.active {
-    margin-left: 17rem;
-    width: calc(100% - 17rem);
-  }
+#sidebar {
+  background-color: #272727;
+  padding: 10px;
 }
 
-.logo {
-  background-image: url(../pictures/be64x.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100px;
-  height: 100px;
+#navbar {
+  justify-content: space-between;
+  width: 100%;
+  background-color: #272727;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.logoParam{
-  background-image: url(../pictures/iconlog.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100px;
-  height: 100px;
+#navbar a {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-.logoLol{
-  background-image: url(../pictures/iconnelol.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 90px;
-  height: 90px;
+
+main {
+  width: 100%;
+  height: 100%;
 }
 
-.logoValo{
-  background-image: url(../pictures/valoicon.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 90px;
-  height: 90px;
+section {
+  background-color: #494949;
+  width: 100%;
+  height: 100%;
 }
 
-.logoOver{
-  background-image: url(../pictures/overwatchicon.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 90px;
-  height: 90px;
+a {
+  text-decoration: none;
+  color: white;
 }
 
+.navigation {
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.containerlogo {
+  height: 75%;
+  justify-content: space-evenly;
+}
+
+.imgaccueil {
+  justify-content: space-evenly;
+  align-items:  center;
+  height: 100%;
+  min-height: 500px;
+  width: 100%;
+}
+
+.imgaccueil a{
+  position: relative;
+  filter: grayscale(0.5);
+  transition: all 0.2s ease;
+}
+
+.imgaccueil a:hover{
+  filter: grayscale(0);
+}
+
+.imgaccueil a img{
+  position: absolute;
+  width: 310px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+.imgaccueil a img:hover{
+  width: 325px;
+}
+
+.accueilsource{
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.center {
+  justify-content: center;
+}
+
+.accueilsource>a img{
+  width: 64px;
+  height: 64px;
+  align-self: center;
+}
+
+.menubuttons a{
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.1s;
+}
+
+.menubuttons a:hover{
+  background-color: #494949;
+}
+.menubuttons a:active{
+  background-color: #303030;
+}
+
+.menubuttons>a img{
+  padding: 7px;
+}
+
+.menuicon a{
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.1s;
+}
+
+.menuicon a:hover{
+  background-color: #494949;
+}
+
+.menuicon a:active{
+  background-color: #303030;
+}
+
+.menuicon>a img{
+  padding: 7px;
+}
+
+.pageLol {
+  width: 100%;
+}
+
+.divLol{
+  width: 30%;
+  justify-content: space-between;
+}
+
+.paddinglol {
+  padding: 1em;
+}
+
+.paddinglol img{
+  padding-right: 10px;
+}
+
+.divLol a {
+  display: flex;
+  flex-direction: row;
+}
+
+.hiddenmenu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -250px;
+  background-color: #e8e8e8;
+  padding-top: 60px;
+  transition: left 0.5s ease;
+}
+
+.hiddenmenu a{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.hiddenmenu a:hover{
+  color: #111;
+}
+.hiddenmenu a:active{
+  left: 0;
+}
+
+.hiddenmenu>a img{
+  width: 32px;
+  height: 32px;
+  padding-right: 5px;
+  align-self: center;
+}
+
+.hiddenmenu .close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
 

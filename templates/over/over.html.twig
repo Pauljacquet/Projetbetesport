@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OverController!{% endblock %}
+
+{% block body %}
+    <div class="flexrow pageLol">
+        <div class="flexcolumn divLol paddinglol">
+            <h1>Ligue</h1>
+            <a href="#"><img  src="{{ asset('build/images/overleague.jpg') }}"><h2>OverWatch League</h2></a>
+            <h1>Matchs</h1>
+        </div>
+        <div class="flexcolumn">
+            <div id="twitch-embed"></div>
+            <script src="https://player.twitch.tv/js/embed/v1.js" ""></script>
+            <script type="text/javascript">
+                var options = {
+                width: 1250,
+                height: 550,
+                channel: "overwatchleague",
+                autoplay: false
+                };
+            new Twitch.Player("twitch-embed", options);
+            </script>
+        </div>
+    </div>
+{% endblock %}
