@@ -4,64 +4,35 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-        
     </head>
-
     <body class="body flexrow">
-
-        <div id="sidebar">
-                <div class="navigation flexcolumn">
-                    <div class="logobet">
-                        <a href="/accueil"><img src="{{ asset('build/images/logobe/be64x.png') }}"></a>
-                    </div>
-                    <div class="containerlogo flexcolumn menubuttons">
-                        <a href="/lol"><img  src="{{ asset('build/images/iconelol.png') }}"></a>
-                        <a href="/valo"><img  src="{{ asset('build/images/valoicon.png') }}"></a>
-                        <a href="/over"><img  src="{{ asset('build/images/overwatchicon.png') }}"></a>
-                    </div>
-                    <div class="flexcolumn menuicon" id=" openBtn">
-                        <a href="#"><img  src="{{ asset('build/images/iconlog.png') }}"></a>
-                    </div>
-                    <div class="flexcolumn hiddenmenu" id="mysidenav">
-                        <a id="closeBtn" href="#" class="close">&times;</a>
-                        <a href="#"><img  src="{{ asset('build/images/tournoi.jpeg') }}"><h4>Tournoi</h4></a>
-                        <a href="#"><img  src="{{ asset('build/images/paramètre.jpeg') }}"><h4>Paramètres</h4></a>
-                        <a href="#"><img  src="{{ asset('build/images/iconlog2.png') }}"><h4>Connexion</h4></a>
-                        <a href="#"><img  src="{{ asset('build/images/apropos.jpg') }}"><h4>A propos</h4></a>
-                    </div>
+        <nav id="sidebar">
+            <div class="navigation flexcolumn">
+                <div class="logobet">
+                    <a href="/accueil"><img src="{{ asset('build/images/logobe/be64x.png') }}"></a>
                 </div>
-        </div> 
-        <script>
-            var sidenav = document.getElementById("mysidenav");
-            var openBtn = document.getElementById("openBtn");
-            var closeBtn = document.getElementById("closeBtn");
-
-            openBtn.onclick = openNav;
-            closeBtn.onclick = closeNav;
-
-            /* Set the width of the side navigation to 250px */
-            function openNav() {
-                sidenav.classList.add("active");
-            }
-
-            /* Set the width of the side navigation to 0 */
-            function closeNav() {
-                sidenav.classList.remove("active");
-            }
-        </script>
-
+                <div class="containerlogo flexcolumn menubuttons">
+                    <a href="/lol"><img  src="{{ asset('build/images/iconelol.png') }}"></a>
+                    <a href="/valo"><img  src="{{ asset('build/images/valoicon.png') }}"></a>
+                    <a href="/over"><img  src="{{ asset('build/images/overwatchicon.png') }}"></a>
+                </div>
+                <div class="flexcolumn hiddenmenu" >
+                    <a href="#"><img  src="{{ asset('build/images/tournoi.jpeg') }}"><h4>Tournoi</h4></a>
+                    <a href="#"><img  src="{{ asset('build/images/paramètre.jpeg') }}"><h4>Paramètres</h4></a>
+                    <a href="/login"><img  src="{{ asset('build/images/iconlog2.png') }}"><h4>Connexion</h4></a>
+                    <a href="#"><img  src="{{ asset('build/images/apropos.jpg') }}"><h4>A propos</h4></a>
+                </div>
+            </div>
+        </nav> 
         <main class="flexcolumn">
             <nav id="navbar" class="flexrow">
                 <a >Let's bet</a>
                 <a >1980 VC</a>     
-            </nav>   
-            
+            </nav>        
             <section class="flexcolumn">
                 {% block body %}{% endblock %}
             </section>
         </main>
-
     </body>
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
-
 </html>
