@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PartieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,6 +28,14 @@ class Partie
 
     #[ORM\Column(length: 255)]
     private ?string $cote_equipe_b = null;
+
+    #[ORM\OneToMany(mappedBy: 'partie', targetEntity: Mise::class)]
+    private Collection $mises;
+
+    public function __construct()
+    {
+        $this->mises = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -76,6 +86,36 @@ class Partie
     public function setCoteEquipeB(string $cote_equipe_b): self
     {
         $this->cote_equipe_b = $cote_equipe_b;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Mise>
+     */
+    public function getMises(): Collection
+    {
+        return $this->mises;
+    }
+
+    public function addMise(Mise $mise): self
+    {
+        if (!$this->mises->contains($mise)) {
+            $this->mises->add($mise);
+            $mise->setPartie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMise(Mise $mise): self
+    {
+        if ($this->mises->removeElement($mise)) {
+            // set the owning side to null (unless already changed)
+            if ($mise->getPartie() === $this) {
+                $mise->setPartie(null);
+            }
+        }
 
         return $this;
     }
