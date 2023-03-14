@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ParieurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ParieurRepository::class)]
@@ -22,6 +24,14 @@ class Parieur
     #[ORM\OneToOne(inversedBy: 'parieur', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?utilisateur $Utilisateur = null;
+
+    #[ORM\OneToMany(mappedBy: 'parieurs', targetEntity: Mise::class)]
+    private Collection $mises;
+
+    public function __construct()
+    {
+        $this->mises = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +70,36 @@ class Parieur
     public function setUtilisateur(utilisateur $Utilisateur): self
     {
         $this->Utilisateur = $Utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Mise>
+     */
+    public function getMises(): Collection
+    {
+        return $this->mises;
+    }
+
+    public function addMise(Mise $mise): self
+    {
+        if (!$this->mises->contains($mise)) {
+            $this->mises->add($mise);
+            $mise->setParieurs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMise(Mise $mise): self
+    {
+        if ($this->mises->removeElement($mise)) {
+            // set the owning side to null (unless already changed)
+            if ($mise->getParieurs() === $this) {
+                $mise->setParieurs(null);
+            }
+        }
 
         return $this;
     }
