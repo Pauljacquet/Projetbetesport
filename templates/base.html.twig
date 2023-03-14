@@ -4,12 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-        <script src="{{ asset('/app.js') }}"></script>
-        
+        {# <script src="{{ asset('/js/script.js') }}"></script> #}
     </head>
-
     <body class="body flexrow">
-
         <nav id="sidebar">
             <div class="navigation flexcolumn">
                 <div class="logobet">
@@ -20,10 +17,7 @@
                     <a href="/valo"><img  src="{{ asset('build/images/valoicon.png') }}"></a>
                     <a href="/over"><img  src="{{ asset('build/images/overwatchicon.png') }}"></a>
                 </div>
-                <div class="flexcolumn menuicon" id=" openBtn">
-                    <a href="#"><img  src="{{ asset('build/images/iconlog.png') }}"></a>
-                </div>
-                <div class="flexcolumn hiddenmenu" id="mysidenav">
+                <div class="flexcolumn hiddenmenu" >
                     <a href="#"><img  src="{{ asset('build/images/tournoi.jpeg') }}"><h4>Tournoi</h4></a>
                     <a href="#"><img  src="{{ asset('build/images/paramètre.jpeg') }}"><h4>Paramètres</h4></a>
                     <a href="#"><img  src="{{ asset('build/images/iconlog2.png') }}"><h4>Connexion</h4></a>
@@ -31,19 +25,15 @@
                 </div>
             </div>
         </nav> 
-
         <main class="flexcolumn">
             <nav id="navbar" class="flexrow">
                 <a >Let's bet</a>
                 <a >1980 VC</a>     
-            </nav>   
-            
+            </nav>        
             <section class="flexcolumn">
                 {% block body %}{% endblock %}
             </section>
         </main>
-
     </body>
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
-
 </html>

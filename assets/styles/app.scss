@@ -178,24 +178,31 @@ a {
 }
 
 .hiddenmenu {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: -250px;
-  background-color: #e8e8e8;
-  padding-top: 60px;
-  transition: left 0.5s ease;
+  font-size: 0.9em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  transition: color 0.3s;
+  align-self: center;
 }
 
 .hiddenmenu a{
-  padding: 8px 8px 8px 32px;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.3s;
+  padding: 5px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 10px;
   color: #818181;
-  display: block;
   transition: 0.3s;
+  justify-content: space-around;
+}
+.hiddenmenu h4{
+  margin: 5px;
+  display: inline-block;
+  font-size: 15px;
 }
 
 .hiddenmenu a:hover{
@@ -206,16 +213,11 @@ a {
 }
 
 .hiddenmenu>a img{
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
   padding-right: 5px;
-  align-self: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.hiddenmenu .close {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-}
 
