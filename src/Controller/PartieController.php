@@ -13,7 +13,10 @@ class PartieController extends AbstractController
     #[Route('/partie', name: 'app_partie')]
     public function index(PartieRepository $partieRepository): Partie
     {
-        $partie = $partieRepository->findOneBy($tournoi = null);
-        return $partie;
+        $parties = $partieRepository->findOneBy([$tournois = 'valo_']);
+        $parties = $partieRepository->findOneBy([$tournois = 'lol_']);
+        $parties = $partieRepository->findOnyBy([$tournois = 'over_']);
+        return $parties;
+        return $tournois;
     }
 }

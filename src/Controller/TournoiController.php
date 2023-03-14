@@ -15,7 +15,10 @@ class TournoiController extends AbstractController
     #[Route('/tournoi', name: 'app_tournoi')]
     public function index(TournoiRepository $tournoiRepository): Tournoi
     {
-        $tournoi = $tournoiRepository->findOneBy($jeu = null);
-        return $tournoi;
+        $tournois = $tournoiRepository->findOneBy([$jeux = 'valo']);
+        $tournois = $tournoiRepository->findOneBy([$jeux = 'lol']);
+        $tournois = $tournoiRepository->findOnyBy([$jeux = 'over']);
+        return $tournois;
+        return $jeux;
     }
 }
