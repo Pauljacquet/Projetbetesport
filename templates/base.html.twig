@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-        {# <script src="{{ asset('/js/script.js') }}"></script> #}
     </head>
     <body class="body flexrow">
         <nav id="sidebar">
@@ -20,7 +19,7 @@
                 <div class="flexcolumn hiddenmenu" >
                     <a href="#"><img  src="{{ asset('build/images/tournoi.jpeg') }}"><h4>Tournoi</h4></a>
                     <a href="#"><img  src="{{ asset('build/images/paramètre.jpeg') }}"><h4>Paramètres</h4></a>
-                    <a href="#"><img  src="{{ asset('build/images/iconlog2.png') }}"><h4>Connexion</h4></a>
+                    <a href="/login"><img  src="{{ asset('build/images/iconlog2.png') }}"><h4>Connexion</h4></a>
                     <a href="#"><img  src="{{ asset('build/images/apropos.jpg') }}"><h4>A propos</h4></a>
                 </div>
             </div>
