@@ -11,9 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class JeuController extends AbstractController
 {
     #[Route('/jeu', name: 'app_jeu')]
-    public function index(JeuRepository $jeuRepository): array
+    public function index(JeuRepository $jeuRepository): Response
     {
         $jeux = $jeuRepository->findAll();
-        return $jeux;
+        return $this->json($jeux, Response::HTTP_OK);
     }
 }
