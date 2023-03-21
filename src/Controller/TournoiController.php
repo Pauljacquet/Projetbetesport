@@ -13,12 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class TournoiController extends AbstractController
 {
     #[Route('/tournoi', name: 'app_tournoi')]
-    public function index(TournoiRepository $tournoiRepository): Tournoi
+    public function index(TournoiRepository $tournoiRepository): Response
     {
-        $tournois = $tournoiRepository->findOneBy([$jeux = 'valo']);
-        $tournois = $tournoiRepository->findOneBy([$jeux = 'lol']);
-        $tournois = $tournoiRepository->findOnyBy([$jeux = 'over']);
-        return $tournois;
-        return $jeux;
+        $tournoisValo = $tournoiRepository->findOneBy(['jeu' => 'valo']);
+        $tournoisLol = $tournoiRepository->findOneBy(['jeu' => 'lol']);
+        $tournoisOver = $tournoiRepository->findOneBy(['jeu' => 'over']);
+        return new Response('Voici les tournois en cours :');
     }
 }
