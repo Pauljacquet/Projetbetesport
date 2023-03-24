@@ -27,7 +27,7 @@ class Tournoi
 
     #[ORM\ManyToOne(inversedBy: 'tournois')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateur $utilisateur = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'tournois')]
     #[ORM\JoinColumn(nullable: false)]
@@ -74,14 +74,14 @@ class Tournoi
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    public function getUtilisateur(): ?User
     {
-        return $this->utilisateur;
+        return $this->user;
     }
 
-    public function setUtilisateur(?Utilisateur $utilisateur): self
+    public function setUtilisateur(?User $user): self
     {
-        $this->utilisateur = $utilisateur;
+        $this->user = $user;
 
         return $this;
     }

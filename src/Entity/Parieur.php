@@ -23,7 +23,7 @@ class Parieur
 
     #[ORM\OneToOne(inversedBy: 'parieur', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?utilisateur $Utilisateur = null;
+    private ?User $user = null;
 
     #[ORM\OneToMany(mappedBy: 'parieurs', targetEntity: Mise::class)]
     private Collection $mises;
@@ -62,14 +62,14 @@ class Parieur
         return $this;
     }
 
-    public function getUtilisateur(): ?utilisateur
+    public function getUtilisateur(): ?User
     {
-        return $this->Utilisateur;
+        return $this->user;
     }
 
-    public function setUtilisateur(utilisateur $Utilisateur): self
+    public function setUtilisateur(User $user): self
     {
-        $this->Utilisateur = $Utilisateur;
+        $this->user = $user;
 
         return $this;
     }
