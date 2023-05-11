@@ -148,11 +148,11 @@ class Tournoi
         return $this->Equipes;
     }
 
+ 
     public function addEquipe(Equipe $equipe): self
     {
         if (!$this->Equipes->contains($equipe)) {
             $this->Equipes->add($equipe);
-            $equipe->setTournoi($this);
         }
 
         return $this;
@@ -160,12 +160,7 @@ class Tournoi
 
     public function removeEquipe(Equipe $equipe): self
     {
-        if ($this->Equipes->removeElement($equipe)) {
-            // set the owning side to null (unless already changed)
-            if ($equipe->getTournoi() === $this) {
-                $equipe->setTournoi(null);
-            }
-        }
+        $this->Equipes->removeElement($equipe);
 
         return $this;
     }

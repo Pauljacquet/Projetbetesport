@@ -108,6 +108,15 @@ class Equipe
         return $this;
     }
 
+    
+    /**
+     * @return Collection<int, Equipe>
+     */
+    public function getTournoi(): Collection
+    {
+        return $this->Tournois;
+    }
+
     public function addTournoi(Tournoi $tournoi): self
     {
         if (!$this->Tournois->contains($tournoi)) {
