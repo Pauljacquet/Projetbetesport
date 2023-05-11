@@ -36,13 +36,13 @@ class Tournoi
     #[ORM\OneToMany(mappedBy: 'tournoi', targetEntity: Partie::class)]
     private Collection $parties;
 
-    #[ORM\OneToMany(mappedBy: 'tournoi', targetEntity: Equipe::class)]
-    private Collection $equipes;
+    #[ORM\ManyToMany(targetEntity: Equipe::class, mappedBy: 'Tournoi')]
+    private Collection $Equipes;
 
     public function __construct()
     {
         $this->parties = new ArrayCollection();
-        $this->equipes = new ArrayCollection();
+        $this->Equipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,13 +145,13 @@ class Tournoi
      */
     public function getEquipes(): Collection
     {
-        return $this->equipes;
+        return $this->Equipes;
     }
 
     public function addEquipe(Equipe $equipe): self
     {
-        if (!$this->equipes->contains($equipe)) {
-            $this->equipes->add($equipe);
+        if (!$this->Equipes->contains($equipe)) {
+            $this->Equipes->add($equipe);
             $equipe->setTournoi($this);
         }
 
@@ -160,7 +160,7 @@ class Tournoi
 
     public function removeEquipe(Equipe $equipe): self
     {
-        if ($this->equipes->removeElement($equipe)) {
+        if ($this->Equipes->removeElement($equipe)) {
             // set the owning side to null (unless already changed)
             if ($equipe->getTournoi() === $this) {
                 $equipe->setTournoi(null);

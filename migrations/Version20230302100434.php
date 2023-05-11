@@ -21,9 +21,9 @@ final class Version20230302100434 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE participation (id INT AUTO_INCREMENT NOT NULL, num_equipe TINYINT(1) NOT NULL, resultat INT NOT NULL, cote INT NOT NULL, is_gagnant TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('ALTER TABLE equipe ADD participation_id INT NOT NULL');
-        $this->addSql('ALTER TABLE equipe ADD CONSTRAINT FK_2449BA156ACE3B73 FOREIGN KEY (participation_id) REFERENCES participation (id)');
-        $this->addSql('CREATE INDEX IDX_2449BA156ACE3B73 ON equipe (participation_id)');
+        $this->addSql('ALTER TABLE participation ADD equipe_id INT NOT NULL');
+        $this->addSql('ALTER TABLE participation ADD CONSTRAINT FK_2449BA156ACE3B73 FOREIGN KEY (equipe_id) REFERENCES equipe (id)');
+        $this->addSql('CREATE INDEX IDX_2449BA156ACE3B73 ON participation (equipe_id)');
     }
 
     public function down(Schema $schema): void

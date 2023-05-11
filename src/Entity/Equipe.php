@@ -23,18 +23,18 @@ class Equipe
 
     #[ORM\ManyToOne(inversedBy: 'equipes')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Tournoi $tournoi = null;
-
-    #[ORM\ManyToOne(inversedBy: 'equipes')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Participation $participation = null;
 
     #[ORM\OneToMany(mappedBy: 'equipe', targetEntity: Mise::class)]
     private Collection $mises;
 
+    #[ORM\ManyToMany(targetEntity: Tournoi::class, inversedBy: 'Equipes')]
+    private Collection $Tournois;
+
     public function __construct()
     {
         $this->mises = new ArrayCollection();
+        $this->Tournois = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -62,18 +62,6 @@ class Equipe
     public function setNote(int $note): self
     {
         $this->note = $note;
-
-        return $this;
-    }
-
-    public function getTournoi(): ?Tournoi
-    {
-        return $this->tournoi;
-    }
-
-    public function setTournoi(?Tournoi $tournoi): self
-    {
-        $this->tournoi = $tournoi;
 
         return $this;
     }
@@ -116,6 +104,22 @@ class Equipe
                 $mise->setEquipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function addTournoi(Tournoi $tournoi): self
+    {
+        if (!$this->Tournois->contains($tournoi)) {
+            $this->Tournois->add($tournoi);
+        }
+
+        return $this;
+    }
+
+    public function removeTournoi(Tournoi $tournoi): self
+    {
+        $this->Tournois->removeElement($tournoi);
 
         return $this;
     }
