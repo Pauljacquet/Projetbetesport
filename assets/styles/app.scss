@@ -221,4 +221,17 @@ a {
   vertical-align: middle;
 }
 
-
+#test input{
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+}
+#test .group div{
+  display: flex;
+  flex-direction: column;
+}
+#test .group div:nth-child(2){
+  margin-top: 10px;
+}
